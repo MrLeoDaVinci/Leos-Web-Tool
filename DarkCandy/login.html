@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Login</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="purchase.html">Purchase</a></li>
+				<li><a href="videos.html">Videos</a></li>
+            </ul>
+        </nav>
+
+        <!-- Persistent Welcome Message (Top right corner) -->
+        <div id="welcomePersistent" class="welcome-bar" style="display: none;"></div>
+    </header>
+
+    <main>
+        <form action="#" method="post" id="loginForm" onsubmit="return false;">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <input type="submit" value="Login" onclick="storeUsername()">
+            <button type="button" onclick="storeUsername()">Sign Up</button>
+        </form>
+
+        <!-- Welcome message for login screen (immediate feedback) -->
+        <p id="welcomeMessage" style="display: none;">Welcome, <span id="userSpan"></span>!</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Website</p>
+    </footer>
+
+    <script>
+        function storeUsername() {
+            const usernameField = document.getElementById("username");
+            const username = usernameField.value.trim();
+
+            if (username) {
+                // Store username in local storage to persist across pages
+                localStorage.setItem("username", username);
+                
+                // Update the welcome message on the current page
+                document.getElementById("userSpan").textContent = username;
+                document.getElementById("welcomeMessage").style.display = "block";
+                updatePersistentWelcome();
+            } else {
+                alert("Please enter a username.");
+            }
+        }
+
+        // Function to update the welcome message at the top right corner
+        function updatePersistentWelcome() {
+            const storedUsername = localStorage.getItem("username");
+            if (storedUsername) {
+                const welcomeBar = document.getElementById("welcomePersistent");
+                welcomeBar.textContent = `Welcome, ${storedUsername}`;
+                welcomeBar.style.display = "block";
+            }
+        }
+
+        // Call the function on page load to show the welcome message if it exists
+        window.onload = function() {
+            updatePersistentWelcome();
+        };
+    </script>
+</body>
+</html>

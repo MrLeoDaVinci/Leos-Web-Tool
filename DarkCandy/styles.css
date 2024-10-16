@@ -1,0 +1,99 @@
+/* Set body background to Discord-like grey and text to white */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #36393F; /* Discord grey */
+    color: white; /* Text color */
+    
+    /* Flexbox layout to push footer to the bottom */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Styling for the header and navigation */
+header {
+    background-color: #00bcd4; /* Cyan for the top bar */
+    color: white; 
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Main content area */
+main {
+    padding: 20px;
+    text-align: center;
+    flex: 1; /* Allow main content to expand */
+}
+
+/* Logo section styling */
+.logo-section {
+    margin: 20px 0;
+}
+
+.logo-section h2 {
+    font-size: 2.5em; /* Adjust font size as needed */
+    color: #00bcd4; /* Cyan color to match the theme */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Add shadow for better visibility */
+}
+
+/* Description section styling */
+.description-section {
+    margin: 20px;
+}
+
+.description-section p {
+    font-size: 1.5em; /* Adjust font size for readability */
+    color: white; /* Text color */
+    line-height: 1.6; /* Increase line height for better spacing */
+    max-width: 600px; /* Limit the width of the text for better readability */
+    margin: 0 auto; /* Center the paragraph */
+}
+
+/* PayPal hyperlink styling */
+.payment-option a {
+    color: #FFCC00; /* Change to a bright yellow color for visibility */
+    text-decoration: underline; /* Underline for emphasis */
+}
+
+.payment-option a:hover {
+    color: #FFAA00; /* Darker yellow when hovered */
+}
+
+/* Footer styling */
+footer {
+    background-color: #00bcd4; /* Cyan footer */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+}
+
+/* Persistent welcome message styling (top right corner) */
+.welcome-bar {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background-color: #00bcd4;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1.2em;
+}

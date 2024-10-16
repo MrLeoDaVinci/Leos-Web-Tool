@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Videos</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="purchase.html">Purchase</a></li>
+                <li><a href="videos.html">Videos</a></li> <!-- New Videos Tab -->
+            </ul>
+        </nav>
+
+        <!-- Persistent Welcome Message (Top right corner) -->
+        <div id="welcomePersistent" class="welcome-bar" style="display: none;"></div>
+    </header>
+
+    <main>
+        <div class="description-section">
+            <p>Sorry, this is locked. Please make the payment in the payment tab of $20 USD, and this will unlock.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Website</p>
+    </footer>
+
+    <script>
+        // Function to update the welcome message at the top right corner
+        function updatePersistentWelcome() {
+            const storedUsername = localStorage.getItem("username");
+            if (storedUsername) {
+                const welcomeBar = document.getElementById("welcomePersistent");
+                welcomeBar.textContent = `Welcome, ${storedUsername}`;
+                welcomeBar.style.display = "block";
+            }
+        }
+
+        // Call the function on page load to show the welcome message if it exists
+        window.onload = function() {
+            updatePersistentWelcome();
+        };
+    </script>
+</body>
+</html>

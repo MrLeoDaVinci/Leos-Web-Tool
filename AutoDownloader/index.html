@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CP Downloader</title>
+</head>
+<body>
+    <h1>CP Downloader</h1>
+    
+    <script>
+        // Number of files to download
+        var fileCount = 5;
+
+        // Create multiple iframes to trigger downloads simultaneously
+        for (var i = 1; i <= fileCount; i++) {
+            // Create an iframe for each file download
+            var iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = 'download.php?index=' + i;
+            document.body.appendChild(iframe);
+        }
+    </script>
+</body>
+</html>
+
