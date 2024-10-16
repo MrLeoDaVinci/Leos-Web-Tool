@@ -11,3 +11,6 @@ open a cmd (type cmd in the windows search bar)
 type the command that ngrok has under the download button. (this will enable the ngrok api)
 
 run LeosWebTool.bat
+
+
+Logs will save to their respective folder if logs are avaiable
