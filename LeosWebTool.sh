@@ -72,8 +72,14 @@ EOF
     echo "purchase.html has been updated with your PayPal and CashApp info."
 fi
 
-# Open first terminal for PHP server
-gnome-terminal -- bash -c "php -S localhost:8000; exec bash"
+# Start PHP server in the background
+php -S localhost:8000 &
 
-# Open second terminal for Ngrok
-gnome-terminal -- bash -c "ngrok http 8000; exec bash"
+# Start Ngrok in the background
+ngrok http 8000 &
+
+# Wait for user input to keep the script running
+read -p "Servers are running. Press [Enter] to stop them and exit."
+
+# Kill background processes (PHP and Ngrok)
+kill $(jobs -p)
